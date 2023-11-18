@@ -119,7 +119,7 @@ pip install -r requirements.txt
 This mainly install the python library necessary for interacting with the RF522 RFID module. 
 
 
-## 🪱 Usage
+## 🐛 Usage
 
 The main program resides in [rfid.py](/rfid.py).
 Run it using this command:
