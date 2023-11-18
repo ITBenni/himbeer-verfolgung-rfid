@@ -1,3 +1,4 @@
+#!/bin/python3
 from pirc522 import RFID
 import time
 import signal
