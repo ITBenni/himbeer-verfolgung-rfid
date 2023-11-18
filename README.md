@@ -4,6 +4,8 @@
 
 A simple RFID demo using a Raspberry Pi and Python
 
+<br/>
+
 </div>
 
 
@@ -12,7 +14,7 @@ A simple RFID demo using a Raspberry Pi and Python
 This is a very simplistic project to demonstrate the use of RFID technology.
 It uses the [NXP MFRC-522 chip](https://www.nxp.com/docs/en/data-sheet/MFRC522.pdf) to communicate with [Mifare Classic EV1 1K](https://www.nxp.com/docs/en/data-sheet/MF1S50YYX_V1.pdf) RFID tags. 
 
-It is intended to be used in the lecture "Soziotechnische Studien: Container, Paletten, Verpackungen" taught by Prof. Dr. Martin Binder at [PH-Weingarten](https://www.ph-weingarten.de).
+It is intended to be used in the lecture "Soziotechnische Studien: Container, Paletten, Verpackungen" taught by Prof. Dr. Martin Binder at [PH-Weingarten](https://technik.ph-weingarten.de/das-fach/das-fach/).
 
 The project can be used in conjunction with this [RESTful](https://github.com/ITBenni/himbeer-verfolgung-backend) backend and this [web frontend](https://github.com/ITBenni/himbeer-verfolgung-frontend). 
 
