@@ -16,7 +16,7 @@ It uses the [NXP MFRC-522 chip](https://www.nxp.com/docs/en/data-sheet/MFRC522.p
 
 It is intended to be used in the lecture "Soziotechnische Studien: Container, Paletten, Verpackungen" taught by Prof. Dr. Martin Binder at [PH-Weingarten](https://technik.ph-weingarten.de/das-fach/das-fach/).
 
-The project can be used in conjunction with this [RESTful](https://github.com/ITBenni/himbeer-verfolgung-backend) backend and this [web frontend](https://github.com/ITBenni/himbeer-verfolgung-frontend). 
+The project can be used in conjunction with this [RESTful](https://github.com/ITBenni/himbeer-verfolgung-api) backend and this [web frontend](https://github.com/ITBenni/himbeer-verfolgung-frontend). 
 
 
 ## Getting Started
