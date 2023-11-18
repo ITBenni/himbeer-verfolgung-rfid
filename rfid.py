@@ -5,7 +5,6 @@ import sys
 import struct
 from datetime import datetime
 import logging
-
 import uuid
 import requests
 import socket
@@ -33,11 +32,18 @@ id = uuid.UUID(int=uuid.getnode())
 station_ID = str(id)
 
 
-# Register this reader with the server
-r = requests.post(f'{API_ENPOINT}/api/stations', json={
-	'station_uuid': station_ID,
-	'name': socket.gethostname()
-})	
+# Try to register this reader with the server
+# In case the server isn't reachable, continue in offline mode
+# The server feature is a nice addon so it isn't too problematic if it fails
+online = False
+try:
+	r = requests.post(f'{API_ENPOINT}/api/stations', json={
+		'station_uuid': station_ID,
+		'name': socket.gethostname()
+	})
+	online = True
+except requests.exceptions.RequestException as e:
+	logging.error(f'API Endpoint {API_ENPOINT} not reachable')
 
 
 # The program should be launchable from the CLI
@@ -68,13 +74,14 @@ try:
 		logging.info(tag_ID)
 
 		# Send update to server
-		r = requests.post(f'{API_ENPOINT}/api/stations/{station_ID}/tags', json={
-			'tag_uuid': tag_ID,
-			'last_seen': 0,
-			'previously_seen': 0
-		})	
+		if online:
+			r = requests.post(f'{API_ENPOINT}/api/stations/{station_ID}/tags', timeout=5, json={
+				'tag_uuid': tag_ID,
+				'last_seen': 0,
+				'previously_seen': 0
+			})	
 
-		logging.info(r.status_code)
+			logging.info(r.status_code)
 
 		# Set tag as used in util. This will call RFID.select_tag(uid)
 		util.set_tag(uid)
