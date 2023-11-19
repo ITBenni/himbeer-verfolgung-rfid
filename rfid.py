@@ -10,7 +10,7 @@ import uuid
 import requests
 import socket
 
-API_ENPOINT='https://ed30b079-966c-49b4-be76-f3f090038b72.ul.bw-cloud-instance.org'
+API_ENDPOINT='https://ed30b079-966c-49b4-be76-f3f090038b72.ul.bw-cloud-instance.org'
 
 
 reader = RFID()
@@ -38,13 +38,13 @@ station_ID = str(id)
 # The server feature is a nice addon so it isn't too problematic if it fails
 online = False
 try:
-	r = requests.post(f'{API_ENPOINT}/api/stations', timeout=5, json={
+	r = requests.post(f'{API_ENDPOINT}/api/stations', timeout=5, json={
 		'station_uuid': station_ID,
 		'name': socket.gethostname()
 	})
 	online = True
 except requests.exceptions.RequestException as e:
-	logging.error(f'API Endpoint {API_ENPOINT} not reachable')
+	logging.error(f'API Endpoint {API_ENDPOINT} not reachable')
 
 
 # The program should be launchable from the CLI
@@ -76,7 +76,7 @@ try:
 
 		# Send update to server
 		if online:
-			r = requests.post(f'{API_ENPOINT}/api/stations/{station_ID}/tags', timeout=5, json={
+			r = requests.post(f'{API_ENDPOINT}/api/stations/{station_ID}/tags', timeout=5, json={
 				'tag_uuid': tag_ID,
 				'last_seen': 0,
 				'previously_seen': 0
