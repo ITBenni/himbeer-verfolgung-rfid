@@ -38,7 +38,7 @@ station_ID = str(id)
 # The server feature is a nice addon so it isn't too problematic if it fails
 online = False
 try:
-	r = requests.post(f'{API_ENPOINT}/api/stations', json={
+	r = requests.post(f'{API_ENPOINT}/api/stations', timeout=5, json={
 		'station_uuid': station_ID,
 		'name': socket.gethostname()
 	})
