@@ -10,7 +10,7 @@ import uuid
 import requests
 import socket
 
-API_ENPOINT='https://37dff9c1-b164-4821-93d5-59684591f4f0.ma.bw-cloud-instance.org'
+API_ENPOINT='https://ed30b079-966c-49b4-be76-f3f090038b72.ul.bw-cloud-instance.org'
 
 
 reader = RFID()
